@@ -60,8 +60,8 @@ public class ProfilePage extends BasicPage {
 		drpCity.selectByVisibleText(cityName);
 	}
 	
-	public WebElement getSubmitBtn() {
-		return driver.findElement(By.name("btn_submit"));
+	public WebElement getSaveBtn() {
+		return driver.findElement(By.xpath("//input[@class='btn btn--primary block-on-mobile']"));
 	}
 	
 	public WebElement getImgArea() {
@@ -70,6 +70,10 @@ public class ProfilePage extends BasicPage {
 	
 	public WebElement getImgUploadBtn() {
 		return driver.findElement(By.className("ion-camera"));
+	}
+	
+	public WebElement getDeleteImgBtn() {
+		return driver.findElement(By.className("remove"));
 	}
 	public void setProfilePic() throws InterruptedException, AWTException {
 	  actionProvider.moveToElement(this.getImgArea()).build().perform();
@@ -80,14 +84,27 @@ public class ProfilePage extends BasicPage {
 	  robot.keyRelease(KeyEvent.VK_ESCAPE);
 	  String imgPath = new File("img/profile.pic.jpg").getAbsolutePath();
 	  WebElement upload_file = driver.findElement(By.xpath("//input[@type='file']"));
-
-	  upload_file.sendKeys(imgPath);
+      upload_file.sendKeys(imgPath);
 	  Thread.sleep(500);
 	  
 	}
 	
+	public void deleteProfilePic() {
+		actionProvider.moveToElement(this.getImgArea()).build().perform();
+		this.getDeleteImgBtn().click();
+		
+	}
+	
 	public void profilePage() {
 		this.getProfilePage().click();
+	}
+	
+	public void clickSaveBtn() throws InterruptedException {
+		WebElement element = driver.findElement(By.name("user_zip"));
+		((JavascriptExecutor) driver).executeScript
+		("arguments[0].scrollIntoView(true);", element);
+		Thread.sleep(500);
+		this.getSaveBtn().click();
 	}
 	
 	public void profileSettingsForm(String firstName, String lastName, String address, String phone, String zipCode) {

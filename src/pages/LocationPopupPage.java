@@ -34,15 +34,17 @@ public class LocationPopupPage extends BasicPage {
 		return driver.findElement(By.xpath("//*[@id=\"location-popup\"]/div/div/div/div/a"));
 	}
 	
+	
+	
 	public void openDialogFromHeader() {
-		driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/div/div[1]/div/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/div/div[1]/div/a/i")).click();
 	}
 
-/*	public void setLocation(String locationName) {
+	public void setLocation(String locationName) {
 		this.getKeyword().click();
 	    this.getLocationItem(locationName).click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", this.getSubmit());
 		
-	}*/
+	}
 }

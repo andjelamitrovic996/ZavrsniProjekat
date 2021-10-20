@@ -13,11 +13,11 @@ public class NotificationSystemPage extends BasicPage {
 	}
 	
 	public WebElement getConfirmationMsg() {
-		return driver.findElement(By.className("system_message alert alert--success"));
+		return driver.findElement(By.xpath("/html/body/div[2]"));
 	}
 	
 	public void thereIsNoLongerMessage() {
-		ExpectedConditions.invisibilityOf(driver.findElement(By.className("system_message alert alert--success")));
+		ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("/html/body/div[2]")));
 	}
 
 	

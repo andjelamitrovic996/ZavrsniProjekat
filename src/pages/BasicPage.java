@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class BasicPage {
@@ -18,5 +19,5 @@ public class BasicPage {
 		return this.driver.findElements(locator).size() > 0;
 	}
 
-
+   
 }
